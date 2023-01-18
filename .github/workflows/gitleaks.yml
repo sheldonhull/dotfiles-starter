@@ -1,0 +1,14 @@
+---
+name: gitleaks
+on: [push, pull_request] # yamllint disable-line
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: gitleaks-action
+        uses: zricethezav/gitleaks-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

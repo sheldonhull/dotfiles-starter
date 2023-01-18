@@ -1,0 +1,9 @@
+*.deb
+talisman_reports
+talisman_html_report
+.direnv/
+.DS_Store
+.artifacts/
+.tools/
+.history/
+node_modules/
