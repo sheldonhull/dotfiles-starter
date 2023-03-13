@@ -3,5 +3,5 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v3.121.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v3.144.0 # renovate: depName=aquaproj/aqua-registry
 packages:
