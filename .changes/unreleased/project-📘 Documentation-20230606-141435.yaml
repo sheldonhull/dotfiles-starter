@@ -1,0 +1,6 @@
+component: project
+kind: "\U0001F4D8 Documentation"
+body:
+  Add changie configuration for documenting changes, and will generate prelease
+  notes.
+time: 2023-06-06T14:14:35.582525-05:00

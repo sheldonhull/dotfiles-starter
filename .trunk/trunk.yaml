@@ -7,28 +7,38 @@ runtimes:
 version: 0.1
 actions:
   enabled:
+    - trunk-announce
     - trunk-upgrade-available
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
+    - prerelease-notes
+  definitions:
+    - id: prerelease-notes
+      display_name: generate-prerelease-notes
+      description: Generate release notes with pre-release flag using changie.
+      run: .trunk/scripts/changie-prerelease-notes.sh
+      triggers:
+        - git_hooks:
+            - pre-push
 cli:
-  version: 1.3.1
+  version: 1.10.1-beta.21
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.3
+      ref: v0.0.14
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
-    - actionlint@1.6.22
+    - actionlint@1.6.24
     - git-diff-check@SYSTEM
-    - gitleaks@8.15.2
+    - gitleaks@8.16.4
     - hadolint@2.12.0
-    - markdownlint@0.33.0
-    - prettier@2.8.3
+    - markdownlint@0.34.0
+    - prettier@2.8.8
     - shellcheck@0.9.0
     - shfmt@3.5.0
     - taplo@0.8.0
-    - yamllint@1.29.0
+    - yamllint@1.32.0
   files:
     - name: go-templates
       extensions:
@@ -40,7 +50,6 @@ lint:
         - output: rewrite
           formatter: true
           run: prettier --write ${target} # "*.tmpl"
-
           #command:
           success_codes: [0]
   ignore:
