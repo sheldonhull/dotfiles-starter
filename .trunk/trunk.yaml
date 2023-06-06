@@ -18,8 +18,8 @@ actions:
       description: Generate release notes with pre-release flag using changie.
       run: .trunk/scripts/changie-prerelease-notes.sh
       triggers:
-        - git_hooks:
-            - pre-push
+        - files:
+            - .changes/unreleased/*.yaml
 cli:
   version: 1.10.1-beta.21
 plugins:
